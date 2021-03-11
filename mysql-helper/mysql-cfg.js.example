@@ -1,0 +1,5 @@
+// Put your mysql config here
+exports.username = ""
+exports.password = ""
+exports.host = ""
+exports.db = ""
