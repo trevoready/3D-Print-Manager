@@ -1,12 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-//Login
+//Current Print Jobs
 router.get('/', function(req, res, next) {
-  res.redirect('login');
-});
-router.get('/login', function(req, res, next) {
-  res.render('index', { title: 'Login' });
+  res.render('index', { title: 'Prints' });
 });
 
 module.exports = router;
