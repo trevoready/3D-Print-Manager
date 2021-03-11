@@ -10,9 +10,15 @@ var objects = require('./routes/objects');
 var prints = require('./routes/prints');
 var printers = require('./routes/printers');
 var jobs = require('./routes/jobs');
-
+var session = require('express-session')
 var app = express();
-
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+  secret: 'Change This',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}))
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -20,7 +26,6 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/prints', prints);
