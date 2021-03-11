@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
   res.redirect('login');
 });
 router.get('/login', function(req, res, next) {
-  res.render('index', { title: 'Login' });
+  res.render('login');
 });
 
 module.exports = router;
