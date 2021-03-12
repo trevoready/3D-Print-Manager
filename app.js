@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var fs = require('fs');
 var index = require('./routes/index');
 var filament = require('./routes/filament');
 var objects = require('./routes/objects');
@@ -34,6 +34,17 @@ app.use('/objects', objects);
 app.use('/jobs', jobs);
 app.use('/printers', printers);
 app.use('/', index);
+
+// Make files dir if not exists
+if (!fs.existsSync('./files')){
+  fs.mkdirSync('./files');
+  console.log('Made files Folder')
+}
+// Make uploads dir if not exists
+if (!fs.existsSync('./uploads')){
+  fs.mkdirSync('./uploads');
+  console.log('Made Uploads Folder')
+}
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
