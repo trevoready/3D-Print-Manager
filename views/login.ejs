@@ -26,5 +26,34 @@
             <button class="btn btn-primary" id="login">Login</button>
         </div>
     </div>
+    <script>
+        $('#username').keypress((event)=>{
+            if(event.keyCode == 13){
+                $('#password').focus()
+            }
+        })
+        $('#password').keypress((event)=>{
+            if(event.keyCode == 13){
+                $('#login').click()
+            }
+        })
+        $('#login').click(()=>{
+            let username = $('#username').val()
+            let password = $('#password').val()
+            let data = {
+                username:username,
+                password:password
+            }
+            fetch('/login', {
+                method: 'POST', 
+                cache: 'no-cache', 
+                credentials: 'same-origin', 
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+        })
+    </script>
 </body>
 </html>
