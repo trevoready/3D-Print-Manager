@@ -63,3 +63,5 @@ typings/
 
 #MySql CFG
 mysql-cfg.js
+files/*
+uploads/*
