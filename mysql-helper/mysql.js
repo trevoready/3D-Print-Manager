@@ -5,5 +5,6 @@ var pool  = mysql.createPool({
   host            : cfg.host,
   user            : cfg.username,
   password        : cfg.password,
-  database        : 'my_db'
+  database        : cfg.db
 });
+exports.pool = pool

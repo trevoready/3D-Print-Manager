@@ -54,6 +54,10 @@
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(data)
+            }).then((res)=>{return res.json()}).then((res)=>{
+                if(res.success){
+                    window.location = '/jobs'
+                }
             });
         })
     </script>
