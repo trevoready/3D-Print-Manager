@@ -6,7 +6,7 @@ var logger = require('morgan');
 var fs = require('fs');
 var index = require('./routes/index');
 var filament = require('./routes/filament');
-var objects = require('./routes/objects');
+var files = require('./routes/files');
 var prints = require('./routes/prints');
 var printers = require('./routes/printers');
 var jobs = require('./routes/jobs');
@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/prints', prints);
 app.use('/filament', filament);
-app.use('/objects', objects);
+app.use('/files', files);
 app.use('/jobs', jobs);
 app.use('/printers', printers);
 app.use('/', index);

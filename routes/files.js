@@ -3,7 +3,7 @@ var router = express.Router();
 
 //All Objects
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Objects' });
+  res.render('files', { title: 'Files' });
 });
 
 module.exports = router;
