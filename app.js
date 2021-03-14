@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const fileUpload = require('express-fileupload');
 var fs = require('fs');
 var index = require('./routes/index');
 var filament = require('./routes/filament');
@@ -19,6 +20,12 @@ app.use(session({
   saveUninitialized: true,
   cookie: { secure: true }
 }))
+app.use(fileUpload({
+  useTempFiles : true,
+  tempFileDir : path.join(__dirname, 'uploads'),
+  debug:true
+}));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
