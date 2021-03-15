@@ -5,7 +5,7 @@ var pool = require('../mysql-helper/mysql.js').pool;
 
 //All Jobs
 router.get('/', function(req, res, next) {
-  pool.query('SELECT jobs.jobCode,jobs.dateAdded,jobs.status,jobs.estPrintTime,filament.material,filament.color,files.name,files.filament,files.fileName FROM jobs LEFT JOIN filament ON jobs.filamentID = filament.ID LEFT JOIN files ON jobs.fileID = files.ID;', async function (error, jobs, fields) {
+  pool.query('SELECT jobs.jobCode,jobs.dateAdded,jobs.status,jobs.estPrintTime,filament.material,filament.color,files.name,files.filament FROM jobs LEFT JOIN filament ON jobs.filamentID = filament.ID LEFT JOIN files ON jobs.fileID = files.ID;', async function (error, jobs, fields) {
     if (error) console.log(error);
     res.render('jobs', { jobs: jobs});
   })
