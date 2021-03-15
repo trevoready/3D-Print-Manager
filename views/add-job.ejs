@@ -30,6 +30,24 @@
                         <% } %>
                     </select>
                 </div>
+                <div class="p-2">
+                    <label for="orderID">Order</label>
+                    <select class="form-control" name="orderID" id="orderID">
+                        <option value="">Select Order</option>
+                        <% for( let index = 0; index < orders.length; index++ ) { %>
+                            <option value="<%= orders[index].ID %>"><%= orders[index].orderName %> </option>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="p-2">
+                    <label for="filamentID">Filament To Use</label>
+                    <select class="form-control" name="filamentID" id="filamentID">
+                        <option value="">Select Filament</option>
+                        <% for( let index = 0; index < filaments.length; index++ ) { %>
+                            <option value="<%= filaments[index].ID %>"><%= filaments[index].material %> - <%= filaments[index].color %></option>
+                        <% } %>
+                    </select>
+                </div>
                 <div class="p-2 justify-content-center">
                     <button type="submit" class="btn btn-primary" id="upload">Create Job</button>
                 </div>
