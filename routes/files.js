@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var uid = require('uid-safe')
 var path = require('path');
-var pool = require('../mysql-helper/mysql.js').pool;
+var pool = require('../mysql-helper/mysql.js');
 const { time } = require('console');
 
 //All Files
@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 router.get('/add', function(req, res, next) {
     res.render('add_file');
 });
-router.post('/upload', function(req, res, next) {
+router.post('/upload', async function(req, res, next) {
   console.log(req.files)
   let sampleFile;
   let uploadPath;
@@ -29,14 +29,12 @@ router.post('/upload', function(req, res, next) {
   uploadPath = path.join(__dirname, '../files/' + newName);
 
   // Use the mv() method to place the file somewhere on your server
-  sampleFile.mv(uploadPath, function(err) {
+  sampleFile.mv(uploadPath, async function(err) {
     if (err)
       return res.status(500).send(err);
 
-    pool.query('INSERT INTO files (name,fileName,time,filament) VALUES(?,?,?,?)',[name,newName,printTime,filament], function (error, results, fields) {
-      if (error) console.log(error);
-      res.redirect('add');
-    })
+    await pool.query('INSERT INTO files (name,fileName,time,filament) VALUES(?,?,?,?)',[name,newName,printTime,filament])
+    res.redirect('add');
   });
 });
 
