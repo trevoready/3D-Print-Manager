@@ -4,6 +4,7 @@ var path = require('path');
 var logger = require('morgan');
 const fileUpload = require('express-fileupload');
 var fs = require('fs');
+const fsp = require('fs').promises;
 var index = require('./routes/index');
 var filament = require('./routes/filament');
 var files = require('./routes/files');
@@ -46,6 +47,16 @@ if (!fs.existsSync('./files')){
   fs.mkdirSync('./files');
   console.log('Made files Folder')
 }
+//delete files in upload dir(temp fix for issue #3)
+fs.readdir('./uploads', (err, files) => {
+  if (err) throw err;
+
+  for (const file of files) {
+    fs.unlink(path.join('./uploads', file), err => {
+      if (err) throw err;
+    });
+  }
+});
 // Make uploads dir if not exists
 if (!fs.existsSync('./uploads')){
   fs.mkdirSync('./uploads');
