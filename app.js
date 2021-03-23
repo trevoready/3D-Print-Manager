@@ -19,7 +19,7 @@ app.use(session({
   saveUninitialized: true,
   cookie: { secure: true }
 }))
-app.use(fileUpload({
+app.use('/files/upload',fileUpload({
   useTempFiles : true,
   tempFileDir : path.join(__dirname, 'uploads'),
   debug:true
