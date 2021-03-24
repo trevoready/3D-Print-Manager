@@ -58,6 +58,7 @@ CREATE TABLE IF NOT EXISTS `files` (
   `fileName` text DEFAULT NULL,
   `time` text DEFAULT NULL,
   `filament` text DEFAULT NULL,
+  `hash` text DEFAULT NULL,
   `dateAdded` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;
