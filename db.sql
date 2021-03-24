@@ -2,7 +2,7 @@
 -- Host:                         10.0.0.114
 -- Server version:               10.3.27-MariaDB-0+deb10u1 - Raspbian 10
 -- Server OS:                    debian-linux-gnueabihf
--- HeidiSQL Version:             10.2.0.5599
+-- HeidiSQL Version:             11.2.0.6213
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -10,11 +10,7 @@
 /*!50503 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-
-
--- Dumping database structure for printMgmt
-CREATE DATABASE IF NOT EXISTS `printMgmt` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
-USE `printMgmt`;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 -- Dumping structure for table printMgmt.colors
 CREATE TABLE IF NOT EXISTS `colors` (
@@ -143,5 +139,6 @@ CREATE TABLE IF NOT EXISTS `vendors` (
 -- Data exporting was unselected.
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
