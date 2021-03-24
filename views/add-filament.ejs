@@ -39,8 +39,8 @@
                     </select>
                     </div>
                     <div class="p-2">
-                        <label for="vendors">Vendor</label>
-                        <select class="form-control" name="vendors" id="vendors">
+                        <label for="vendor">Vendor</label>
+                        <select class="form-control" name="vendor" id="vendor">
                         <% for( let index = 0; index < vendors.length; index++ ) { %>
                             <option value="<%= vendors[index].name %>"><%= vendors[index].name %> </option>
                         <% } %>
@@ -48,7 +48,11 @@
                     </div>
                     <div class="p-2 justify-content-center">
                         <label for="amount">Start Amount</label>
-                        <input class="form-control" type="text" placeholder="amount" name="amount" id="amount">
+                        <input class="form-control" type="text" placeholder="Amount" name="amount" id="amount">
+                    </div>
+                    <div class="p-2 justify-content-center">
+                        <label for="currentAmount">Current Amount</label>
+                        <input class="form-control" type="text" placeholder="Current Amount" name="currentAmount" id="currentAmount">
                     </div>
                     <div class="p-2 justify-content-center">
                         <label for="price">Roll Price</label>
