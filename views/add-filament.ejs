@@ -1,73 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add File</title>
-    <script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
-<body> 
-    <% include sub-views/navBar %> 
-    <form ref='uploadForm' 
-        id='uploadForm' 
-        action='/files/upload' 
-        method='post' 
-        encType="multipart/form-data">
-        <div class="vh-100 d-flex flex-column align-items-center justify-content-center">
-            <div class="border flex-column align-items-center d-flex justify-content-center">
-                <div class="p-2">
-                    <h1>Add New Roll</h1>
-                </div>
-                <div class="p-2 justify-content-center">
-                    <label for="barcode">Barcode</label>
-                    <input class="form-control" type="text" placeholder="Barcode" name="barcode" id="barcode">
-                </div>
-                <div class="p-2">
-                    <label for="material">Material</label>
-                    <select class="form-control" name="material" id="material">
+
+<body>
+    <% include sub-views/navBar %>
+        <form action='/filament/add' method='post'>
+            <div class="vh-100 d-flex flex-column align-items-center justify-content-center">
+                <div class="border flex-column align-items-center d-flex justify-content-center">
+                    <div class="p-2">
+                        <h1>Add New Roll</h1>
+                    </div>
+                    <div class="p-2 justify-content-center">
+                        <label for="barcode">Barcode</label>
+                        <input class="form-control" type="text" placeholder="Barcode" name="barcode" id="barcode">
+                    </div>
+                    <div class="p-2">
+                        <label for="material">Material</label>
+                        <select class="form-control" name="material" id="material">
                         <% for( let index = 0; index < materials.length; index++ ) { %>
                             <option value="<%= materials[index].name %>"><%= materials[index].name %> </option>
                         <% } %>
                     </select>
-                </div>
-                <div class="p-2">
-                    <label for="color">Color</label>
-                    <select class="form-control" name="color" id="color">
+                    </div>
+                    <div class="p-2">
+                        <label for="color">Color</label>
+                        <select class="form-control" name="color" id="color">
                         <% for( let index = 0; index < colors.length; index++ ) { %>
                             <option value="<%= colors[index].name %>"><%= colors[index].name %> </option>
                         <% } %>
                     </select>
-                </div>
-                <div class="p-2">
-                    <label for="vendors">Vendor</label>
-                    <select class="form-control" name="vendors" id="vendors">
+                    </div>
+                    <div class="p-2">
+                        <label for="vendors">Vendor</label>
+                        <select class="form-control" name="vendors" id="vendors">
                         <% for( let index = 0; index < vendors.length; index++ ) { %>
                             <option value="<%= vendors[index].name %>"><%= vendors[index].name %> </option>
                         <% } %>
                     </select>
-                </div>
-                <div class="p-2 justify-content-center">
-                    <label for="amount">Start Amount</label>
-                    <input class="form-control" type="text" placeholder="amount" name="amount" id="amount">
-                </div>
-                <div class="p-2 justify-content-center">
-                    <label for="price">Roll Price</label>
-                    <input class="form-control" type="text" placeholder="Price" name="price" id="price">
-                </div>
-                <div class="p-2 justify-content-center">
-                    <label for="purchaseDate">Roll Purchase Date</label>
-                    <input class="form-control" type="date" placeholder="Date" name="purchaseDate" id="purchaseDate">
-                </div>
-                <div class="p-2 justify-content-center">
-                    <button type="submit" class="btn btn-primary" id="upload">Add</button>
+                    </div>
+                    <div class="p-2 justify-content-center">
+                        <label for="amount">Start Amount</label>
+                        <input class="form-control" type="text" placeholder="amount" name="amount" id="amount">
+                    </div>
+                    <div class="p-2 justify-content-center">
+                        <label for="price">Roll Price</label>
+                        <input class="form-control" type="text" placeholder="Price" name="price" id="price">
+                    </div>
+                    <div class="p-2 justify-content-center">
+                        <label for="purchaseDate">Roll Purchase Date</label>
+                        <input class="form-control" type="date" placeholder="Date" name="purchaseDate" id="purchaseDate">
+                    </div>
+                    <div class="p-2 justify-content-center">
+                        <button type="submit" class="btn btn-primary" id="upload">Add</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
 </body>
+
 </html>
