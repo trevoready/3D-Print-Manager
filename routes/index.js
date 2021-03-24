@@ -22,8 +22,8 @@ router.post('/login', function(req, res, next) {
         })
         res.json({success:false, error:"Password Set"})
       }else{
-        res.json({success:true})
-        bcrypt.compareSync(req.body.password, results[0].password)
+        let success = bcrypt.compareSync(req.body.password, results[0].password)
+        res.json({success:success})
       }
     });
   }else{
