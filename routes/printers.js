@@ -16,7 +16,7 @@ router.get('command/:barcode/lowerBed', function(req, res, next) {
 router.post('/webhook', async function(req, res, next) {
     console.log(req.body)
     printerCommands.getPrinterInfo(req.body.deviceIdentifier)
-    let snapshot = req.files.file;
+    let snapshot = req.files.snapshot;
     fileName = snapshot.name;
     fileData = fileName.split(".")
     newName = req.body.deviceIdentifier + '.' + fileData[1]
