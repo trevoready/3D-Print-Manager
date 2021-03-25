@@ -17,7 +17,7 @@ router.post('/webhook', async function(req, res, next) {
     console.log(req.body)
     printerCommands.getPrinterInfo(req.body.deviceIdentifier)
     let snapshot = req.files.file;
-    fileName = uploadedFile.name;
+    fileName = snapshot.name;
     fileData = fileName.split(".")
     newName = req.body.deviceIdentifier + '.' + fileData[1]
     uploadPath = path.join(__dirname, '../public/snapshots/' + newName);
