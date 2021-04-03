@@ -12,8 +12,8 @@ router.get('/', async function(req, res, next) {
 });
 router.get('/add', async function(req, res, next) {
     var db = await mongo.getClient()
-    const [resultsFiles, resultsOrders, resultsFilament] = await Promise.all([db.collection('files').find({}).toArray(), db.collection('orders').find({}).toArray(), db.collection('filament').find({}).toArray()]);
-    res.render('add-job', { files: resultsFiles, orders: resultsOrders, filaments: resultsFilament, uid: uid.sync(8) });
+    const [resultsOrders, resultsFilament] = await Promise.all([db.collection('orders').find({}).toArray(), db.collection('filament').find({}).toArray()]);
+    res.render('add-job', { orders: resultsOrders, filaments: resultsFilament, uid: uid.sync(8) });
 });
 router.post('/new', async function(req, res, next) {
     console.log(req.body)
