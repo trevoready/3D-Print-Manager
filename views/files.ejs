@@ -16,55 +16,35 @@
         <div class="container">
             <div class="row align-items-start p-2">
                 <div class="col-3">
-                    <a href="/jobs/add" class="btn btn-primary">Add Job</a>
+                    <a href="/files/add" class="btn btn-primary">Add GCODE File</a>
                 </div>
             </div>
         </div>
         <div class="container">
-            <table class="table table-sm table-hover table-bordered border-dark">
+            <table class="table table-hover">
                 <thead>
                     <td>Name</td>
+                    <td>Print Time</td>
+                    <td>Material Amount</td>
                     <td>Date Added</td>
-                    <td>Status</td>
-                    <td>EST. Print Time</td>
-                    <td>Material</td>
-                    <td>Amount</td>
-                    <td>Actions</td>
                 </thead>
                 <tbody>
-                    <% for( let index = 0; index < jobs.length; index++ ) { %>
+                    <% for( let index = 0; index < files.length; index++ ) { %>
                         <tr>
-                            <% let job = jobs[index] %>
+                            <% let file = files[index] %>
 
                                 <td>
-                                    <%= job.name %>
+                                    <%= file.name %>
                                 </td>
                                 <td>
-                                    <%= job.dateAdded %>
+                                    <%= file.time %>g</td>
+                                <td>
+                                    <%= file.filament %>
                                 </td>
-                                <% if (job.status == 1) { %>
-                                    <td>In Queue</td>
-                                    <% } %>
-                                        <% if (job.status == 2) { %>
-                                            <td>Printing</td>
-                                            <% } %>
-                                                <% if (job.status == 3) { %>
-                                                    <td>Post Printing</td>
-                                                    <% } %>
-                                                        <% if (job.status == 4) { %>
-                                                            <td>Done</td>
-                                                            <% } %>
-                                                                <td>
-                                                                    <%= job.estPrintTime %>
-                                                                </td>
-                                                                <td>
-                                                                    <%= job.material %> -
-                                                                        <%= job.color %>
-                                                                </td>
-                                                                <td>
-                                                                    <%= job.filament %>g</td>
-                                                                <td><button id="status" onclick="statusChange('<%= job.jobCode %>')" class="p-1 m-1 btn btn-primary">Change Status</button><button onclick="printLabel('<%= job.jobCode %>','<%= job.name %>','<%= job.filament %>','<%= job.estPrintTime %>')"
-                                                                        class="p-1 m-1 btn btn-primary">Print Label</button><button id="status" onclick="deleteJob('<%= job.jobCode %>')" class="p-1 m-1 btn btn-danger">Delete</button></td>
+                                <td>
+                                    <%= file.dateAdded %>
+                                </td>
+                                <td><a id="status" href="" class="p-1 m-1 btn btn-primary">Replace File</a></td>
                         </tr>
                         <% } %>
                 </tbody>

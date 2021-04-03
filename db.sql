@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `filament` (
   `purchasePrice` text DEFAULT NULL,
   `color` text DEFAULT NULL,
   `openedOn` text DEFAULT NULL,
-  `purchaceDate` text DEFAULT NULL,
+  `purchaseDate` text DEFAULT NULL,
   `deliveryDate` text DEFAULT NULL,
   `vendor` text DEFAULT NULL,
   PRIMARY KEY (`ID`)
@@ -58,6 +58,7 @@ CREATE TABLE IF NOT EXISTS `files` (
   `fileName` text DEFAULT NULL,
   `time` text DEFAULT NULL,
   `filament` text DEFAULT NULL,
+  `hash` text DEFAULT NULL,
   `dateAdded` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;

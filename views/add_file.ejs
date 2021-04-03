@@ -1,45 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add File</title>
-    <script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
-<body> 
-    <% include sub-views/navBar %> 
-    <form ref='uploadForm' 
-        id='uploadForm' 
-        action='/files/upload' 
-        method='post' 
-        encType="multipart/form-data">
-        <div class="vh-100 d-flex flex-column align-items-center justify-content-center">
-            <div class="border flex-column align-items-center d-flex justify-content-center">
-                <div class="p-2">
-                    <h1>Add New File</h1>
-                </div>
-                <div class="p-2 justify-content-center">
-                    <input class="form-control" type="text" placeholder="File Name" name="name">
-                </div>
-                <div class="p-2">
-                    <input class="form-control" type="text" placeholder="Filament Amount" name="amount">
-                </div>
-                <div class="p-2">
-                    <input class="form-control" type="text" placeholder="Print Time" name="printTime">
-                </div>
-                <div class="p-2">
-                    <input class="form-control" type="file" placeholder="File" name="file">
-                </div>
-                <div class="p-2 justify-content-center">
-                    <button type="submit" class="btn btn-primary" id="upload">Add</button>
+
+<body>
+    <% include sub-views/navBar %>
+        <form ref='uploadForm' id='uploadForm' action='/files/upload' method='post' encType="multipart/form-data">
+            <div class="vh-100 d-flex flex-column align-items-center justify-content-center">
+                <div class="border flex-column align-items-center d-flex justify-content-center">
+                    <div class="p-2">
+                        <h1>Add New File</h1>
+                    </div>
+                    <div class="p-2 justify-content-center">
+                        <input class="form-control" type="text" placeholder="File Name" name="name">
+                    </div>
+                    <div class="p-2">
+                        <input class="form-control" type="text" placeholder="Filament Amount" name="amount">
+                    </div>
+                    <div class="p-2">
+                        <input class="form-control" type="text" placeholder="Print Time" name="printTime">
+                    </div>
+                    <div class="p-2">
+                        <input class="form-control" type="file" placeholder="File" name="file">
+                    </div>
+                    <div class="p-2 justify-content-center">
+                        <button type="submit" class="btn btn-primary" id="upload">Add</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>
+
 </html>
