@@ -1,73 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add File</title>
-    <script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
+    <title>Add Spool</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
-<body> 
-    <% include sub-views/navBar %> 
-    <form ref='uploadForm' 
-        id='uploadForm' 
-        action='/files/upload' 
-        method='post' 
-        encType="multipart/form-data">
-        <div class="vh-100 d-flex flex-column align-items-center justify-content-center">
-            <div class="border flex-column align-items-center d-flex justify-content-center">
-                <div class="p-2">
-                    <h1>Add New Roll</h1>
-                </div>
-                <div class="p-2 justify-content-center">
-                    <label for="barcode">Barcode</label>
-                    <input class="form-control" type="text" placeholder="Barcode" name="barcode" id="barcode">
-                </div>
-                <div class="p-2">
-                    <label for="material">Material</label>
-                    <select class="form-control" name="material" id="material">
-                        <% for( let index = 0; index < materials.length; index++ ) { %>
-                            <option value="<%= materials[index].name %>"><%= materials[index].name %> </option>
-                        <% } %>
-                    </select>
-                </div>
-                <div class="p-2">
-                    <label for="color">Color</label>
-                    <select class="form-control" name="color" id="color">
-                        <% for( let index = 0; index < colors.length; index++ ) { %>
-                            <option value="<%= colors[index].name %>"><%= colors[index].name %> </option>
-                        <% } %>
-                    </select>
-                </div>
-                <div class="p-2">
-                    <label for="vendors">Vendor</label>
-                    <select class="form-control" name="vendors" id="vendors">
-                        <% for( let index = 0; index < vendors.length; index++ ) { %>
-                            <option value="<%= vendors[index].name %>"><%= vendors[index].name %> </option>
-                        <% } %>
-                    </select>
-                </div>
-                <div class="p-2 justify-content-center">
-                    <label for="amount">Start Amount</label>
-                    <input class="form-control" type="text" placeholder="amount" name="amount" id="amount">
-                </div>
-                <div class="p-2 justify-content-center">
-                    <label for="price">Roll Price</label>
-                    <input class="form-control" type="text" placeholder="Price" name="price" id="price">
-                </div>
-                <div class="p-2 justify-content-center">
-                    <label for="purchaseDate">Roll Purchase Date</label>
-                    <input class="form-control" type="date" placeholder="Date" name="purchaseDate" id="purchaseDate">
-                </div>
-                <div class="p-2 justify-content-center">
-                    <button type="submit" class="btn btn-primary" id="upload">Add</button>
+
+<body>
+    <% include sub-views/navBar %>
+        <form ref='uploadForm' id='uploadForm' action='/files/upload' method='post' encType="multipart/form-data">
+            <div class="vh-100 d-flex flex-column align-items-center justify-content-center">
+                <div class="border flex-column align-items-center d-flex justify-content-center">
+                    <div class="p-2">
+                        <h1>Add New Spool</h1>
+                    </div>
+                    <div class="p-2 justify-content-center">
+                        <div class="input-group">
+                            <span class="input-group-text">Barcode</span>
+                            <input class="form-control" type="text" placeholder="Barcode" name="barcode" id="barcode">
+                        </div>
+                    </div>
+                    <div class="p-2">
+                        <div class="input-group">
+                            <span class="input-group-text">Material</span>
+                            <input class="form-control" name="material" id="material" />
+                        </div>
+                    </div>
+                    <div class="p-2">
+                        <div class="input-group">
+                            <span class="input-group-text">Color</span>
+                            <input class="form-control" name="color" id="color" />
+                        </div>
+                    </div>
+                    <div class="p-2">
+                        <div class="input-group">
+                            <span class="input-group-text">Vendor Name</span>
+                            <input class="form-control" name="vendor" id="vendors" />
+                        </div>
+                    </div>
+                    <div class="p-2 justify-content-center">
+                        <div class="input-group">
+                            <span class="input-group-text">Spool Start Amount</span>
+                            <input class="form-control" type="number" placeholder="Amount" name="amount" id="amount">
+                            <span class="input-group-text">g</span>
+                        </div>
+                    </div>
+                    <div class="p-2 justify-content-center">
+                        <div class="input-group">
+                            <span class="input-group-text">Spool Weight</span>
+                            <input class="form-control" type="number" placeholder="Amount" name="amount" id="amount">
+                            <span class="input-group-text">g</span>
+                        </div>
+                    </div>
+                    <div class="p-2 justify-content-center">
+                        <div class="input-group">
+                            <span class="input-group-text">Spool Price Per g:$</span>
+                            <input class="form-control" type="text" placeholder="Price" name="price" id="price">
+                        </div>
+                    </div>
+                    <div class="p-2 justify-content-center">
+                        <div class="input-group">
+                            <span class="input-group-text">Spool Purchace Date</span>
+                            <input class="form-control" type="date" placeholder="Date" name="purchaseDate" id="purchaseDate">
+                        </div>
+                    </div>
+                    <div class="p-2 justify-content-center">
+                        <button type="submit" class="btn btn-primary" id="upload">Add</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
 </body>
+
 </html>
