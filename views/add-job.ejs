@@ -24,7 +24,7 @@
                     <div class="p-2">
                         <label for="orderID">Order</label>
                         <select class="form-control" name="orderID" id="orderID" onchange="getFilesForOrder()">
-                        <option value="">Select Order</option>
+                            <option value="" disabled selected hidden>Choose an order</option>
                         <% for( let index = 0; index < orders.length; index++ ) { %>
                             <option value="<%= orders[index].ID %>"><%= orders[index].orderName %> </option>
                         <% } %>
@@ -32,13 +32,14 @@
                     </div>
                     <div class="p-2">
                         <label for="file">File To Print</label>
-                        <select class="form-control" name="fileID" id="file" disabled>
+                        <select class="form-control" name="fileID" id="file">
+                            <option value="" disabled selected hidden>Choose a file</option>
                     </select>
                     </div>
                     <div class="p-2">
-                        <label for="filamentID">Filament To Use</label>
+                        <label for="file">Filament</label>
                         <select class="form-control" name="filamentID" id="filamentID">
-                        <option value="">Select Filament</option>
+                        <option value="" disabled selected>Filament Roll</option>
                         <% for( let index = 0; index < filaments.length; index++ ) { %>
                             <option value="<%= filaments[index].ID %>"><%= filaments[index].material %> - <%= filaments[index].color %></option>
                         <% } %>
