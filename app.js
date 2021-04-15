@@ -12,6 +12,7 @@ var prints = require('./routes/prints');
 var printers = require('./routes/printers');
 var jobs = require('./routes/jobs');
 var orders = require('./routes/orders');
+var customers = require('./routes/customers');
 var session = require('express-session')
 var app = express();
 app.set('trust proxy', 1) // trust first proxy
@@ -42,6 +43,7 @@ app.use('/files', files);
 app.use('/jobs', jobs);
 app.use('/printers', printers);
 app.use('/orders', orders);
+app.use('/customers', customers);
 app.use('/', index);
 
 // Make files dir if not exists
