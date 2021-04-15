@@ -11,9 +11,10 @@ router.get('/', async function(req, res, next) {
 });
 router.get('/add', async function(req, res, next) {
     let customers = await pool.query('SELECT * FROM customers')
-    res.render('add_order', { customers: customers });
+    res.render('add_order', { customers: customers, uid: uid.sync(10) });
 });
 router.post('/new', async function(req, res, next) {
+    console.log(req.body)
     res.redirect('/orders/')
 });
 module.exports = router;
